@@ -1,0 +1,40 @@
+type Marketplace @entity {
+  id: ID!
+  nft_address: String!
+  symbol: String!
+  name: String!
+  uri: String
+  payment_address: String!
+  payment_denom: String!
+  max_per_address: BigInt
+  seller_fee_bps: BigInt!
+  referral_fee_bps: BigInt!
+  protocol_fee_bps: BigInt!
+  start_time: Date!
+  max_edition: BigInt
+  ratio: BigInt!
+  sender: String!
+  blockHeight: BigInt!
+  txHash: String!
+  createdAt: Date!
+}
+
+type Transaction @entity {
+  id: ID!
+  marketplace: Marketplace!
+  txType: String!
+  recipient: String!
+  quantity: BigInt!
+  token_ids: [String!]!
+  denom: String!
+  price: BigInt!
+  referral_amount: BigInt!
+  referral: String
+  refund: BigInt!
+  royalties: BigInt!
+  royalties_recipient: String!
+  protocol_fee: BigInt!
+  blockHeight: BigInt!
+  txHash: String!
+  createdAt: Date!
+}
